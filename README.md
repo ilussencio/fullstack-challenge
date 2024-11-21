@@ -1,5 +1,7 @@
 # Technical Test - Shopper
+
 This repository contains the project developed for **Phase 1 - Technical Testing** of **Shopper**, which consists of building a backend and frontend for a private transportation application. The challenge includes the creation of three endpoints, an integration with the Google Maps API and a simple, functional frontend.
+
 ---
 ## 📋 Project Description
 ### Objective
