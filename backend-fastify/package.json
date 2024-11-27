@@ -1,0 +1,26 @@
+{
+  "name": "backend-fastify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx ./src/server.js",
+    "dev": "tsx --watch ./src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "class-validator": "^0.14.1",
+    "dotenv": "^16.4.5",
+    "fastify": "^5.1.0",
+    "pg-promise": "^11.10.2",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
