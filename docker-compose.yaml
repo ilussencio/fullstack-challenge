@@ -1,0 +1,40 @@
+version: '3.1'
+services:
+  postgres-database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: app_googlemaps_dev
+    volumes:
+      - ./backend-fastify/src/database/db.sql:/docker-entrypoint-initdb.d/db.sql
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  shooper-frontend:
+    image: ilussencio/shooper-frontend:9
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    environment:
+      VITE_API_URL: http://localhost:8080
+    env_file:
+      - ./.env
+    ports:
+      - "80:8081"
+
+  shooper-backend:
+    image: ilussencio/shooper-backend:4
+    build:
+      context: ./backend-fastify
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:3000"
+    environment:
+      DATABASE_URL: postgres://root:password@postgres-database:5432/app_googlemaps_dev
+    env_file:
+      - ./.env
+    depends_on:
+      - postgres-database
