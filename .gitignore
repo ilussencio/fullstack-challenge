@@ -1,4 +1,7 @@
-backend/node_modules
-frontend/node_modules
 backend/.env
 frontend/.env
+/.vscode/
+/.idea/
+/backend-fastify/.env
+/backend-fastify/node_modules/
+/postgres-data/
